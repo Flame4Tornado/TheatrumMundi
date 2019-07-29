@@ -1,0 +1,273 @@
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  width: 30rem;
+  height: 42.5rem;
+
+  &__side {
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 30rem;
+    height: 42.2rem;
+    box-shadow: $bs-2;
+
+    &--front {}
+
+    &--back {
+      transform: rotateY(180deg);
+      background-image: url(../img/eight_horns.png);
+      display: grid;
+      grid-template-rows: 10rem 2rem 20rem 1fr;
+
+      &>* {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+
+  &__picture-front {
+    height: auto;
+    width: 30rem;
+  }
+
+  &__head {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    align-self: flex-end;
+    letter-spacing: 2px;
+  }
+
+  &__date {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  &__description {
+    padding: $mg-small $mg-medium;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  &__btn-container {
+    padding-top: $mg-small;
+    align-self: flex-start;
+  }
+}
+
+%btn-ph {
+  width: 18rem;
+  height: 4.5rem;
+  background-color: $color-black;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $color-white;
+  border: none;
+  border-radius: 100px;
+  box-shadow: $bs-1;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+}
+
+.btn-primary {
+  @extend %btn-ph;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    height: 4.5rem;
+    width: 18rem;
+    background-color: transparent;
+    border-radius: 100px;
+    opacity: 1;
+    transition: all 0.4s;
+  }
+
+  &:link,
+  &:visited {
+    @extend %btn-ph;
+  }
+
+  &:hover {
+    transform: translateY(-0.4rem);
+  }
+
+  &:active {
+    transform: translateY(0.5rem);
+    box-shadow: $bs-2;
+  }
+
+  &:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    background-color: $color-black;
+    opacity: 0;
+  }
+}
+
+//OWN VIDEO PLAYER
+.full-screen {
+
+  &__video-wrap {
+    position: relative;
+    overflow: hidden;
+
+    &:hover .controls {
+      transform: translateY(0);
+    }
+  }
+
+  &__video {
+    width: 100%;
+    height: auto;
+
+    &>source {
+      width: 100%;
+    }
+  }
+
+}
+
+.controls {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  flex-wrap: wrap;
+  background-color: rgba($color-quarternary, .8);
+  transform: translateY(100%) translateY(-5px);
+  transition: all .3s;
+
+  &__buttons {
+    padding: $mg-smallest $mg-small;
+  }
+
+  &__play {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &>svg {
+      height: 4rem;
+      width: 4rem;
+      fill: $color-secondary;
+    }
+  }
+
+  &__bar {
+    height: 1rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $color-black;
+    position: relative;
+  }
+
+  &__fill {
+    height: 1rem;
+    // width: 100px;
+    background-color: $color-secondary;
+  }
+
+  &__time {
+    position: absolute;
+    width: 100%;
+    height: 1rem;
+    color: transparent;
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+    transform: translateY(-1rem);
+    background-color: transparent;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border: none;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background-color: transparent;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+      height: 1rem;
+      width: 5px;
+
+    }
+  }
+
+  &__time-display {
+    margin: .5rem $mg-small;
+    display: flex;
+    margin-right: auto;
+    text-align: center;
+    font-size: 1.6rem;
+    font-family: inherit;
+    font-weight: 600;
+    color: $color-secondary;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__volume-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: $mg-medium;
+  }
+
+  &__volume-icon {
+    height: 3rem;
+    width: 3rem;
+    fill: $color-secondary;
+    margin-right: $mg-small;
+
+  }
+
+  &__volume {
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border: none;
+    }
+
+    &::-ms-thumb {
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      border: 1px solid #000000;
+      height: 36px;
+      width: 16px;
+      border-radius: 3px;
+      background: #ffffff;
+      cursor: pointer;
+    }
+  }
+}

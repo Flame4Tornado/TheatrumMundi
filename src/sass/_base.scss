@@ -1,0 +1,53 @@
+// COLOR VARIABLES
+
+$color-primary: #95966D;
+$color-secondary: #CCCDA1;
+$color-tertiary: #D19FA0;
+$color-quarternary: #574142;
+
+$color-white: #fff;
+$color-black: #111;
+$color-grey-light-1: rgb(236, 236, 236);
+$color-grey-light-2: #ccc9c9;
+$color-grey-light-3: #E2DFDF;
+
+$color-grey-dark-1: #4E4C4C;
+$color-grey-dark-2: #A09D9D;
+$color-grey-dark-3: #767373;
+
+// BOX SHADOW VARIABLES
+
+$bs-1: 0 1rem 2rem rgba(#222, .6);
+$bs-2: 0 1rem 1.5rem rgba(#222, .3);
+
+// DISTANCE VARIABLES
+
+$mg-huge: 8rem;
+$mg-large: 6rem;
+$mg-medium: 4rem;
+$mg-small: 2rem;
+$mg-smallest: 1rem;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto 1fr max-content 1fr;
+    grid-template-rows: minmax(100vh, max-content) 10rem;
+    background-image: url(../img/confectionary.png);
+
+}

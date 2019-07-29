@@ -1,0 +1,152 @@
+.play {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 30rem 70rem 1fr;
+    grid-template-rows: 1fr repeat(3, auto) 1fr;
+    grid-row-gap: 2rem;
+    grid-column-gap: 4rem;
+    align-content: center;
+
+    &>* {
+        background-color: $color-grey-light-1;
+        // background-image: url(../img/cloth.png);
+        border-radius: 3px;
+        box-shadow: $bs-2;
+        // padding: .5rem .4rem;
+    }
+}
+
+.watch {
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+
+    &__wrapper {
+        position: relative;
+
+        &:hover>div>svg {
+            opacity: 1;
+        }
+    }
+
+    &__poster {
+        height: auto;
+        width: 100%;
+
+    }
+
+    &__icon-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        & svg {
+            opacity: 0;
+            height: 8rem;
+            width: 8rem;
+            fill: $color-secondary;
+            transition: all .2s;
+            cursor: pointer;
+        }
+    }
+
+}
+
+.gallery {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+
+    &__wrapper {
+        display: grid;
+        height: 20rem;
+        grid-column-gap: 2rem;
+        grid-template-rows: 5rem 1fr;
+
+    }
+
+    &__img-wrap {
+        display: grid;
+        justify-items: center;
+        align-content: center;
+        cursor: pointer;
+    }
+
+    &__head {
+        grid-column: 1 / -1;
+        background-color: $color-black;
+        color: $color-white;
+        padding: .5rem $mg-small;
+        font-size: 2rem;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+    }
+
+    &__img {
+        width: 70%;
+        height: auto;
+        margin: 0 4px;
+        border-radius: 5px;
+        box-shadow: $bs-2;
+        padding: 3px 5px;
+        transition: all .2s;
+
+        &:hover {
+            transform: translateY(-.3rem) scale(1.02);
+
+        }
+    }
+}
+
+.description {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    font-size: 2.2rem;
+    font-weight: 600;
+    display: grid;
+
+    &>* {
+        display: flex;
+        align-items: center;
+    }
+
+    &__wrapper {
+        height: 100%;
+        display: grid;
+        grid-template-rows: 8rem 1fr;
+    }
+
+    &__title {
+        height: 100%;
+        background-color: $color-black;
+        color: $color-white;
+        display: flex;
+        align-items: center;
+        padding: $mg-smallest $mg-small;
+        width: 100%;
+    }
+
+    &__content {
+        align-self: center;
+        padding: $mg-small;
+        display: block;
+        // height: 100%;
+    }
+}
+
+.adaptation {
+    grid-column: 3 / 4;
+    grid-row: 3 / 5;
+    font-size: 2.2rem;
+    font-weight: 600;
+    display: grid;
+    align-self: flex-start;
+
+    &>* {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+}

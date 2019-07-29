@@ -1,0 +1,8 @@
+.theatre {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    grid-column-gap: $mg-medium;
+    grid-row-gap: $mg-medium;
+    justify-content: center;
+    padding: $mg-huge $mg-small $mg-huge $mg-medium;
+}
